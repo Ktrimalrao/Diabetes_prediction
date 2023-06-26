@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .background-image {
+        background-image: url("https://cdn.xxl.thumbs.canstockphoto.com/healthcare-and-medical-concept-stethoscope-and-blood-glucose-meter-sets-on-blue-background-world-stock-photo_csp84142040.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    
+    .content {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        margin: 0 auto;
+        position: absolute;
+        top: 100px; /* Adjusted position: 100px from top */
+        right: 200px; /* Adjusted position: 200px from right */
+    }
+    
+    .content h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .content form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        margin-bottom: 20px;
+        justify-content: end;
+    }
+    
+    .content form input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: none;
+    }
+    
+    .content form label {
+        display: block;
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .content button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .content button:hover {
+        background-color: #0056b3;
+    }
+    
+    .content h2 {
+        font-size: 24px;
+    }
+</style>
+
+</head>
+<body>
+    <div class="background-image">
+        <div class="content">
+            <h1>Diabetes Prediction</h1>
+            <form action="{{ url_for('predict_datapoint')}}" method="post">
+                <label for="Pregnancies">Pregnancies</label>
+                <input type="text" name="Pregnancies" id="Pregnancies" placeholder="Pregnancies" required="required" />
+                
+                <label for="Glucose">Glucose</label>
+                <input type="text" name="Glucose" id="Glucose" placeholder="Glucose" required="required" />
+                
+                <label for="BloodPressure">Blood Pressure</label>
+                <input type="text" name="BloodPressure" id="BloodPressure" placeholder="BloodPressure" required="required" />
+                
+                <label for="SkinThickness">Skin Thickness</label>
+                <input type="text" name="SkinThickness" id="SkinThickness" placeholder="SkinThickness" required="required" />
+                
+                <label for="Insulin">Insulin</label>
+                <input type="text" name="Insulin" id="Insulin" placeholder="Insulin" required="required" />
+                
+                <label for="BMI">Body Mass Index</label>
+                <input type="text" name="BMI" id="BMI" placeholder="BMI" required="required" />
+                
+                <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                <input type="text" name="DiabetesPedigreeFunction" id="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" />
+                
+                <label for="Age">Age</label>
+                <input type="text" name="Age" id="Age" placeholder="Age" required="required" />
+                
+                <button type="submit">Predict</button>
+            </form>
+            <h2>
+                Person is: {{result}}
+            </h2>
+        </div>
+    </div>
+</body>
+</html>
